@@ -2,16 +2,15 @@ namespace hw
 {
     internal static class Program
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
+            // Инициализация модели и презентера
+            Model model = new Model();
+            Presenter presenter = new Presenter(model, null);  // Передача модели и презентера
+
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            Application.Run(new View(model, presenter));  // Передача модели и презентера в конструктор
         }
     }
 }
